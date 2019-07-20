@@ -14,6 +14,12 @@ $channel->exchange_declare('topic_logs', 'topic', false, false, false);
 
 list($queue_name, ,) = $channel->queue_declare("", false, false, true, false);
 
+
+print_r($channel->queue_declare("", false, false, true, false));
+echo "\n";
+echo ' [*] queue_name: ', $queue_name, "\n";
+
+
 // 获取绑定路由的值/数组
 $binding_keys = array_slice($argv, 1);
 
