@@ -11,7 +11,6 @@ class Autoload
     {
         $file = BASE_PATH . DIRECTORY_SEPARATOR . str_replace('\\', '/', $class) . '.php';
         if (file_exists($file)) {
-            print_r($file);
             require $file;
         } else {
             throw new \Exception('load: ' . $loadPath . ': file does not exist!', 404);
