@@ -1,0 +1,23 @@
+#!/usr/bin/env php
+<?php
+// 定义常量
+define('BASEDIR', __DIR__); 
+
+require __DIR__.'/vendor/autoload.php';
+
+// 引入自动加载类
+include BASEDIR . '/Core/Loader.php';
+spl_autoload_register('\\Core\\Loader::autoload');
+
+
+use Symfony\Component\Console\Application;
+use Cmd\ModelCommand;
+use Cmd\DbCommand;
+
+$application = new Application();
+
+// 注册我们编写的命令 (commands)
+$application->add(new ModelCommand());
+$application->add(new DbCommand());
+
+$application->run();
